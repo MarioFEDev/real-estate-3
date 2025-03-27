@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Martha Sharpe</title>
+    <link rel="stylesheet" href="Poppins.css">
+    <link rel="stylesheet" href="rubik.css">
+    <link rel="stylesheet" href="oswald.css">
+    <link rel="stylesheet" href="montserrat.css">
+    <link rel="stylesheet" href="vollkorn.css">
+
+    <style>
+        :root{
+            --tl :0
+        }
+        @keyframes intro-name{
+            from{
+                transform: translateY(30px);
+                letter-spacing: 60px;
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        @keyframes slide-up{
+            from{
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            50%{
+                opacity: 1;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+        @keyframes blinking{
+            49.9%{
+                opacity: 1;
+            }
+            50%{
+                opacity: 0;
+            }
+            79.9%{
+                opacity: 0;
+            }
+            80%{
+                opacity: 1;
+            }
+        }
+        @keyframes m1{
+            3%{
+                right: 100%;
+            }
+            17%,23%{
+                right: 0%;
+            }      
+            37%,43%{
+                right: -100%;
+            }                    
+            97%,100%{
+                right: -100%;
+            } 
+        }
+        @keyframes m2{
+            3%{
+                right: 200%;
+            }
+            17%,23%{
+                right: 100%;
+            }
+            37%,43%{
+                right: 0%;
+            }
+           
+            57%,63%{
+                right: -100%;
+            }
+            
+            100%{
+                right: -100% ;
+            }
+        }
+        @keyframes m3{
+            3%{
+                right: 300%;
+            }
+            17%,23%{
+                right: 200%;
+            }      
+            37%,43%{
+                right: 100%;
+            }            
+            57%,63%{
+                right: 0%;
+            }        
+            77%,83%{
+                right: -100%;
+            }         
+            97%,100%{
+                right: -100%;
+            } 
+        }
+        @keyframes m4{
+            3%{
+                right: 400%;
+            }
+            17%,23%{
+                right: 300%;
+            }      
+            37%,43%{
+                right: 200%;
+            }            
+            57%,63%{
+                right: 100%;
+            }        
+            77%,83%{
+                right: 0%;
+            }         
+            97%,100%{
+                right: -100%;
+            } 
+        }
+        @keyframes m5{
+            3%{
+                right: 500%;
+            }
+            17%,23%{
+                right: 400%;
+            }      
+            37%,43%{
+                right: 300%;
+            }            
+            57%,63%{
+                right: 200%;
+            }        
+            77%,83%{
+                right: 100%;
+            }         
+            97%,100%{
+                right: 0%;
+            }          
+        }
+        @keyframes tl1{
+            3%{
+                left:-115%;
+                opacity: 0;
+            }
+            6%{
+                opacity: 1;
+            }
+            17%,23%{
+                left: 0%;
+
+            }
+            24%{
+                opacity: 1;
+            }
+            28%{
+                opacity: 0;
+            }
+            37%,43%{
+                left: 100%;
+            }
+            100%{
+                left: 100%;
+            }
+        }
+        @keyframes tl2{
+            23%{
+              left:-115%;
+            }
+            26%{
+                opacity: 1;
+            }
+            37%,43%{
+                left: 0%;
+            }
+            44%{
+                opacity: 1;
+            }
+            48%{
+                opacity: 0;
+            }
+            57%,63%{
+                left: 100%;
+            }
+            100%{
+                left: 100%;
+            }
+        }
+        @keyframes tl3{
+            43%{
+                left:-115%;
+                opacity: 0;
+            }
+            46%{
+                opacity: 1;
+            }
+            57%,63%{
+                left: 0%;
+            }
+            64%{
+                opacity: 1;
+            }
+            68%{
+                opacity: 0;
+            }
+            77%,83%{
+                left: 100%;
+            }
+            100%{
+                left: 100%;
+            }
+        }
+        @keyframes tl4{
+            63%{
+                left:-115%;
+                opacity: 0;
+            }
+            66%{
+                opacity: 1;
+            }
+            77%,83%{
+                left: 0%;
+            }
+            84%{
+                opacity: 1;
+            }
+            88%{
+                opacity: 0;
+            }
+            97%,100%{
+                left: 100%;
+                
+            }
+        }
+        @keyframes tl5{
+            83%{
+                left:-115%;
+                opacity: 0;
+            }
+            86%{
+                opacity: 1;
+            }
+            97%,100%{
+                left: 0%;
+                opacity: 1;
+            }
+        }
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            color: rgb(0, 0, 0);
+            font-family: poppins-regular;
+        }
+        em{
+            font-style: normal;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+        body{
+            background-color: #f5f4f5;
+            padding-bottom: 100px;
+        }
+        header{
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 4em;
+            position: fixed;
+            top: 0;
+            z-index: 5;
+            color: white;
+        }
+        header > *{
+            z-index: 5;
+        }
+        header::after{
+            content:'' ;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-image: linear-gradient(rgba(28, 28, 28, 0.742),rgba(28, 28, 28, 0.242),transparent); 
+            z-index: 4;
+            opacity: 0;
+            transform-origin: top;
+            transition: .4s;
+        }
+        header::before{
+            content:'' ;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background:#1a1a1afe;
+            z-index: 4;
+            transform-origin: top;
+            transition: .4s;
+            display: block;
+            opacity: var(--tl);
+        }
+        
+        header:hover::after{
+            opacity: 1;
+        }
+        .name-con{
+            font-size: 30pt;
+            color: white;
+        }
+        .menu-con{
+            display: flex;
+            gap: 3em;  
+        }
+        .menu-con > a{
+            color: white;
+        }
+        .intro-sec{
+            width: 100%;
+            height: 100vh;
+            min-height: 400px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-image: url(23910.jpg);
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+        }
+        .intro-sec > *{
+            z-index: 1;
+        }   
+        .intro-sec::after{
+            position: absolute;
+            top: 0;
+            content: '';
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.532);
+        }
+        .intro-txt{
+            font-family: poppins-regular;
+            width: 100%;
+            font-size: 60px;
+            text-align: center;
+            letter-spacing: 20px;
+            word-spacing: 25px;
+            opacity: 0;
+            animation: intro-name 1.65s  1s forwards;
+            color:transparent ;
+            -webkit-text-stroke: .2px white;
+        }
+        .intro-txt::before{
+            content: 'Real Estate Agent';
+            display: block;
+            word-spacing: 0px;
+            letter-spacing: 6px;
+            opacity: 0;
+            font-size: 8pt;
+            font-family: rubik-lightitalic;
+            animation: slide-up .7s linear 3s forwards;
+            -webkit-text-stroke:0px;
+            color: white;
+        }
+
+        
+        .sec1{
+            width: 100%;
+            height: fit-content;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            margin-top:50px ;
+        }
+        .sec1 > *{
+            border:1px solid rgba(0, 0, 0, 0);
+        }
+        .typing-con{
+            height: fit-content;
+            text-align: left;
+            display: flex;
+            align-items:center ;
+            width: 60%;
+            display: inline-block;
+        }
+        .typing{
+            font-family: poppins-semibold;
+            font-size: 30pt;
+            display: inline-block;
+        }
+        .tl{
+            user-select: none;
+            color:rgba(0, 128, 0, 0);
+            position: relative;
+            display: inline-block;
+            height: fit-content;
+            border: 1px solid rgba(0, 128, 0, 0);
+            overflow: hidden;
+        }
+        .tl,.tle{
+            font-family: montserrat-bold;
+            font-size: 40pt;
+            width: fit-content;
+            height: fit-content;
+            display: inline;
+            user-select: none; 
+        }
+        .tle{
+            position: absolute;
+            text-wrap: nowrap;
+            display: inline;
+            top: 0;
+            left:-100%;
+            user-select: all; opacity: 1;
+            color: black;
+            overflow-x: hidden;
+            animation-duration: 6s;
+            animation-fill-mode: forwards;
+            opacity: 0;
+            user-select: all;  
+        }
+        .tl1{
+            background: linear-gradient(45deg, #BF5700, #001F3F);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tl2{
+            background: linear-gradient(45deg, #FF6B6B, #FFA07A, #6A0572); 
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tl3{
+            background: linear-gradient(45deg, #ff4e50, #1f1c2c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tl4{
+            background: linear-gradient(45deg, #8b0000, #d4af37, #1c1c1c);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .tl5{
+            background: linear-gradient(45deg, #b22222, #1e3a8a, #000d5d);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .main-phrase{
+            display: inline;
+        }
+        
+        .tle::before{
+            content: attr(data-title);
+            display: inline;
+            transform: translateX(-100%);
+        }
+        .cursor{
+            animation: blinking .8s linear infinite;
+        }
+        .map-imgs-con{
+            width: 380px;
+            aspect-ratio: 1/1;
+            flex-wrap: nowrap;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+        .map-imgs{
+            width: 100%;
+            height: 100%; 
+            position: absolute;
+            top: 0 ;
+            animation-duration: 6s;
+            animation-fill-mode: forwards;
+        }
+        .m1{
+            right: 100%;    
+        }
+        .m2{
+            right: 200%;    
+        }
+        .m3{
+            right: 300%;    
+        }
+        .m4{
+            right: 400%;    
+        }
+        .m5{
+            right: 500%; 
+        }
+
+        .flsec{
+            width: 100%;
+            height: fit-content;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 60px;
+            border: 1px solid black;
+            background-color: #1a1a1a;
+            margin-top: 100px;
+            padding-top: 20px;
+        }
+        .flttl{
+            font-family: poppins-semibold;
+            font-size: 40pt;
+            color: rgb(255, 255, 255);
+            margin-bottom: 50px;
+        }
+        .flcon{
+            width: 100%;
+            height: fit-content;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 2em;
+            padding: 2em;
+        }
+        .fl{
+            width:100% ;
+            min-height: 500px;
+            height: fit-content;
+            border: 1px solid transparent;
+        }
+        .fl-img-con{
+            width: 100%;
+            aspect-ratio: 3/2;
+        }
+
+
+        
+
+
+
+
+
+        ::-webkit-scrollbar{
+            background-color: transparent;
+            width: 10px;
+        }
+        ::-webkit-scrollbar-thumb{
+            background-color: #ccc;
+            border-radius: 3px;
+        }
+        .none{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="name-con">Martha Sharpe</div>
+        <div class="menu-con">
+            <a href="">Home</a>
+            <a href="">Listings</a>
+            <a href="">About Me</a>
+            <a href="">Contact</a>
+        </div>
+    </header>
+
+    <section class="intro-sec">
+        <h1 class="intro-txt">MARTHA SHARPE</h1>
+    </section>
+
+    <section class="sec1">
+        <div class="typing-con">
+            <p class="typing">
+                <em class="main-phrase"></em>
+                <em class="cursor">|</em> 
+                <div class="tl">
+                    AlliOverithelUSii
+                    <div class="tle tl1 " data-title="Dallas"></div>
+                    <div class="tle tl2 " data-title="Los Angeles"></div>
+                    <div class="tle tl3 " data-title="New York"></div>
+                    <div class="tle tl4 " data-title="Washington"></div>
+                    <div class="tle tl5 " data-title="The Entire USA..."></div>
+                </div> 
+                            
+            </p>
+        </div>
+        <div class="map-imgs-con">
+            <div class="map-imgs m1"><img src="Dallas Cityscape.jpeg" alt=""></div>
+            <div class="map-imgs m2"><img src="TE-Collage_Los_Angeles.png" alt=""></div>
+            <div class="map-imgs m3"><img src="newcoll.png" alt=""></div>
+            <div class="map-imgs m4"><img src="washcoll.jpg" alt=""></div>
+            <div class="map-imgs m5"><img src="freepik__expand__46066.jpeg" alt=""></div>
+        </div>
+    </section>
+
+    <section class="flsec">
+        <h1 class="flttl">Featured Listing</h1>
+        <div class="flcon">
+            <div class="fl">
+                <div class="fl-img-con"><img src="l1.webp" alt=""></div>
+            </div>
+            <div class="fl">
+                <div class="fl-img-con"><img src="l2.webp" alt=""></div>
+            </div>
+            <div class="fl">
+                <div class="fl-img-con"><img src="l3.webp" alt=""></div>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+
+    <script>
+        typingPosition = 0
+        const typ = document.querySelector('.main-phrase')
+        const cur = document.querySelector('.cursor')
+        const tl1 = document.querySelector('.tl1')
+        const tl2 = document.querySelector('.tl2')
+        const tl3 = document.querySelector('.tl3')
+        const tl4 = document.querySelector('.tl4')
+        const tl5 = document.querySelector('.tl5')
+        const m1 = document.querySelector('.m1')
+        const m2 = document.querySelector('.m2')
+        const m3 = document.querySelector('.m3')
+        const m4 = document.querySelector('.m4')
+        const m5 = document.querySelector('.m5')
+
+        function width(dom){
+            wdt =  dom.offsetWidth
+            return wdt
+        }
+        function height(dom){
+            wdt =  dom.offsetHeight
+            return wdt
+        }
+
+        function typing(){
+            let phrase = 'Affordable, Timeless, Premium Quality Housing in the heart of '
+            
+            if (typingPosition === phrase.length - 1) {
+                setTimeout(
+                    () => {
+                        cur.classList.add('none')
+                        slidingType()
+                    },500
+                )
+                
+                return;
+            }
+            typingTime = (Math.random() * 100) + 18;
+            typ.innerText += phrase[typingPosition];
+            typingPosition++;
+            if (typingPosition < phrase.length) {
+                setTimeout(typing, typingTime); // Continue typing
+            }
+        }
+
+        function slidingType(){
+            m1.style.animationName = 'm1'
+            m2.style.animationName = 'm2'
+            m3.style.animationName = 'm3'
+            m4.style.animationName = 'm4'
+            m5.style.animationName = 'm5'
+            tl1.style.animationName = 'tl1'
+            tl2.style.animationName = 'tl2'
+            tl3.style.animationName = 'tl3'
+            tl4.style.animationName = 'tl4'
+            tl5.style.animationName = 'tl5'
+        }
+        
+        const introHeader = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelector('header').style.setProperty('--tl', '0')
+                } else {
+                    document.querySelector('header').style.setProperty('--tl', '1')
+                }
+            })
+        }, {threshold: .2})  
+        introHeader.observe(document.querySelector('.intro-sec'))
+
+        const startTyping = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    typing()
+                    observer.unobserve(entry.target)
+                }
+            })
+        }, {threshold: 0.75})
+        startTyping.observe(document.querySelector('.sec1'))
+    </script>
+</body>
+</html>
